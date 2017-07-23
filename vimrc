@@ -1,5 +1,6 @@
 colorscheme Tomorrow-Night-Bright
-set guifont=Menlo Regular:h28
+set guifont=Menlo\ Regular:h32
+"set lines=35 columns=150
 let mapleader=" "
 
 set hidden
@@ -10,10 +11,10 @@ set expandtab
 set smartindent
 set autoindent
 set hlsearch
-
 set showmatch
 
-autocmd BufWritePre * :%s/\s\+$//e
+syntax on
+"autocmd BufWritePre * :%s/\s\+$//e
 
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 nnoremap <Leader><Leader> :e#<CR>

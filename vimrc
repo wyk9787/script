@@ -1,6 +1,5 @@
 colorscheme Tomorrow-Night-Bright
-set guifont=Menlo\ Regular:h28
-set lines=35 columns=150
+set guifont=Menlo Regular:h28
 let mapleader=" "
 
 set hidden

@@ -23,7 +23,7 @@ set smarttab
 set ruler
 syntax on
 
-nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+":nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 nnoremap <Leader><Leader> :e#<CR>
 filetype indent on
 imap <C-l> <esc>$i<right>

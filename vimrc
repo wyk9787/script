@@ -34,7 +34,7 @@ set visualbell
 set encoding=utf-8
 
 " Whitespace
-set wrap
+set nowrap
 set textwidth=79
 set formatoptions=tcqrn1
 set tabstop=2

@@ -1,7 +1,7 @@
 " Don't try to be vi compatible
 set nocompatible
 
-" remap ESC to jj
+" remap ESC to jj i
 imap jj <Esc>
 
 " Helps force plugins to load correctly when it is turned back on below
@@ -98,4 +98,4 @@ set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme solarized
+colorscheme Tomorrow-Night-Bright 

@@ -16,7 +16,7 @@ syntax on
 filetype plugin indent on
 
 " TODO: Pick a leader key
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " Security
 set modelines=0
@@ -44,7 +44,7 @@ set expandtab
 set noshiftround
 
 " Cursor motion
-set scrolloff=3
+set scrolloff=5
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
@@ -98,4 +98,57 @@ set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-colorscheme Solarized
+
+" Copy to the system clipboard for Mac
+set clipboard=unnamed
+
+" NERDTree Shortcut to Ctrl+\
+map <C-\> :NERDTreeToggle<CR>
+
+" Settings for Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Set clang_library for auto-completion
+let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+
+" vim-plug plugin manager
+call plug#begin('~/.vim/plugged')
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Fuzzy file finder
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Cool status bar
+Plug 'itchyny/lightline.vim'
+
+" File tree view NERDTree
+Plug 'https://github.com/scrooloose/nerdtree.git'
+
+" Syntax checking
+Plug 'neomake/neomake'
+
+" Comments
+Plug 'https://github.com/tpope/vim-commentary.git'
+
+" Smart Indentation
+Plug 'https://github.com/vim-scripts/IndentAnything.git'
+
+" Match maker
+Plug 'https://github.com/qstrahl/vim-matchmaker.git'
+
+" C/C++ Auto Completion
+Plug 'https://github.com/Rip-Rip/clang_complete.git'
+
+call plug#end()
+
+" Settings for neomake
+" When writing a buffer (no delay).
+call neomake#configure#automake('w')

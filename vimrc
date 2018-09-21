@@ -1,7 +1,7 @@
 " Don't try to be vi compatible
 set nocompatible
 
-" remap ESC to jj i
+" remap ESC to jj i 3
 imap jj <Esc>
 
 " Helps force plugins to load correctly when it is turned back on below

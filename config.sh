@@ -22,10 +22,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Install syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# Configure zshrc
+# Copy zshrc to home directory
 cp zshrc ~/.zshrc
 
-# Configure vimrc
-cp vimrc ~/.vimrc
+# Install vim-plug which is a plugin manager for vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Do `PlugInstall` in vim to install vim plugins

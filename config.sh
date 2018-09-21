@@ -27,3 +27,5 @@ cp zshrc ~/.zshrc
 
 # Configure vimrc
 cp vimrc ~/.vimrc
+
+# Do `PlugInstall` in vim to install vim plugins

@@ -110,9 +110,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Set clang_library for auto-completion
-let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-
 " vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
@@ -143,9 +140,6 @@ Plug 'https://github.com/vim-scripts/IndentAnything.git'
 
 " Match maker
 Plug 'https://github.com/qstrahl/vim-matchmaker.git'
-
-" C/C++ Auto Completion
-Plug 'https://github.com/Rip-Rip/clang_complete.git'
 
 call plug#end()
 

@@ -5,13 +5,22 @@
 # and install following plugins:
 #   1. zsh-autosuggestions
 #   2. zsh-syntax-highlighting 
+#
+# Also install vim-plug, which is a vim plugin manager and install
+# corresponding vim plugins
 ##########################################################
 
+###########################################################
 # Acquire oh-my-zsh
+# Onece oh-my-zsh is installed, this script needs to be rerun again since we
+# are using zsh now
+
 # Mac configuration
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # Linux configuration
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+###########################################################
 
 # Install theme
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
@@ -26,7 +35,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 cp zshrc ~/.zshrc
 
 # Install vim-plug which is a plugin manager for vim
+# If curl is not installed, then go to the github repo and download plug.vim
+# into ~/.vim/autoload
+#
+# Run `PlugInstall` in vim to install vim plugins
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Do `PlugInstall` in vim to install vim plugins
+

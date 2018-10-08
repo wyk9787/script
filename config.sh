@@ -18,6 +18,9 @@
 # Mac configuration
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+##### Make sure zsh is installed already, otherwise run the following line
+# sudo apt-get install zsh
+
 # Linux configuration
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ###########################################################

@@ -12,7 +12,7 @@
 
 ###########################################################
 # Acquire oh-my-zsh
-# Onece oh-my-zsh is installed, this script needs to be rerun again since we
+# Once oh-my-zsh is installed, this script needs to be rerun again since we
 # are using zsh now
 
 # Make sure zsh is installed already, otherwise run the following line

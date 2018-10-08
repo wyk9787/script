@@ -15,11 +15,11 @@
 # Onece oh-my-zsh is installed, this script needs to be rerun again since we
 # are using zsh now
 
+# Make sure zsh is installed already, otherwise run the following line
+# sudo apt-get install zsh
+
 # Mac configuration
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-##### Make sure zsh is installed already, otherwise run the following line
-# sudo apt-get install zsh
 
 # Linux configuration
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"

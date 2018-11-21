@@ -149,3 +149,7 @@ call plug#end()
 " Settings for neomake
 " When writing a buffer (no delay).
 call neomake#configure#automake('w')
+
+" Enable auto clang formatting for c and cpp files
+autocmd FileType cpp ClangFormatAutoEnable
+autocmd FileType c ClangFormatAutoEnable

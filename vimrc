@@ -141,6 +141,9 @@ Plug 'https://github.com/vim-scripts/IndentAnything.git'
 " Match maker
 Plug 'https://github.com/qstrahl/vim-matchmaker.git'
 
+" vim-clang-format
+Plug 'https://github.com/rhysd/vim-clang-format'
+
 call plug#end()
 
 " Settings for neomake

@@ -144,6 +144,9 @@ Plug 'https://github.com/qstrahl/vim-matchmaker.git'
 " vim-clang-format
 Plug 'https://github.com/rhysd/vim-clang-format'
 
+" vim-markdown-preview
+Plug 'https://github.com/JamshedVesuna/vim-markdown-preview'
+
 call plug#end()
 
 " Settings for neomake
@@ -153,3 +156,11 @@ call neomake#configure#automake('w')
 " Enable auto clang formatting for c and cpp files
 autocmd FileType cpp ClangFormatAutoEnable
 autocmd FileType c ClangFormatAutoEnable
+
+" Use grip to work with vim-markdown-preview plugin to interpret the markdown
+" file as a github README file
+let vim_markdown_preview_github=1
+
+" Preview markdown on buffer write
+let vim_markdown_preview_toggle=2
+

@@ -110,6 +110,12 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Turn on spell checking
+" `z=`: find substituion
+" `zg`: add to dictionary
+" `zw`: mark the word as incorrect
+set spell spelllang=en_us
+
 " vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes

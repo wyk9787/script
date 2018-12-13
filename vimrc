@@ -111,7 +111,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Turn on spell checking
-" `z=`: find substituion
+" `z=`: find substitution
 " `zg`: add to dictionary
 " `zw`: mark the word as incorrect
 set spell spelllang=en_us

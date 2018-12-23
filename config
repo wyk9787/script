@@ -1,0 +1,32 @@
+# ~/.ssh/config
+
+UseKeychain yes
+AddKeysToAgent yes
+
+Host mathlan
+  User wangyika
+  HostName ssh.cs.grinnell.edu
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_rsa
+
+Host nelson 
+  User wangyika
+  Hostname nelson.cs.grinnell.edu
+  IdentityFile ~/.ssh/id_rsa
+  ForwardAgent yes
+  # ProxyCommand ssh mathlan -W %h:%p -i ~/.ssh/id_rsa
+  ProxyJump mathlan
+
+Host gray
+  User wangyika
+  Hostname gray.cs.grinnell.edu
+  IdentityFile ~/.ssh/id_rsa
+  ForwardAgent yes
+  ProxyCommand ssh mathlan -W %h:%p
+
+Host *
+  UseKeychain yes
+
+Host synology
+  User wangyika97
+  HostName garrettwyk.synology.me

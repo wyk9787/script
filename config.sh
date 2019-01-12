@@ -37,6 +37,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # Copy zshrc to home directory
 cp zshrc ~/.zshrc
 
+# Copy vimrc to home directory
+cp vimrc ~/.vimrc
+
 # Install vim-plug which is a plugin manager for vim
 # If curl is not installed, then go to the github repo and download plug.vim
 # into ~/.vim/autoload

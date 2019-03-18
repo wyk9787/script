@@ -1,13 +1,16 @@
 #!/bin/bash
 
+set -x # echo on
+
 ##########################################################
-# A personal script to install oh-my-zsh, configure .zshrc
-# and install following plugins:
-#   1. zsh-autosuggestions
-#   2. zsh-syntax-highlighting 
-#
-# Also install vim-plug, which is a vim plugin manager and install
-# corresponding vim plugins
+# A personal script which installs following:
+# 1. Install zsh if necessary 
+# 2. Copy over .zshrc and install following plugins:
+#   a. zsh-autosuggestions
+#   b. zsh-syntax-highlighting 
+# 3. Install Vundle, a vim plugin manager 
+# 4. Copy over .vimrc
+# 5. Copy over following formatter config file
 ##########################################################
 
 ###########################################################
@@ -15,6 +18,7 @@
 # Once oh-my-zsh is installed, this script needs to be rerun again since we
 # are using zsh now
 
+# TODO: Decide whether we are on mac or linux
 # Make sure zsh is installed already, otherwise run the following line
 # sudo apt-get install zsh
 
@@ -37,14 +41,19 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # Copy zshrc to home directory
 cp zshrc ~/.zshrc
 
-# Install vim-plug which is a plugin manager for vim
+# Install Vundle which is a plugin manager for vim
 # If curl is not installed, then go to the github repo and download plug.vim
 # into ~/.vim/autoload
 #
-# First manually copy the vimrc into ~/.vimrc
-#
-# Run `PlugInstall` in vim to install vim plugins
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Run `PluginInstall` in vim to install vim plugins
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Copy vimrc to home directory
+cp vimrc ~/.vimrc
+
+# Copy formatter config files to home directory
+cp clang-format ~/.clang-format
+mkdir -p ~/.config/yapf && cp yapf_style ~/.config/yapf/style
+
 
 

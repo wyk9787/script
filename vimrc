@@ -1,21 +1,68 @@
-" Don't try to be vi compatible
-set nocompatible
+" Make sure you use single quotes
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Fuzzy file finder
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Cool status bar
+Plugin 'itchyny/lightline.vim'
+
+" File tree view NERDTree
+Plugin 'https://github.com/scrooloose/nerdtree.git'
+
+" Syntax checking
+Plugin 'neomake/neomake'
+
+" Comments
+" <leader>c<space>: Toggle the state of current(selected) lines
+Plugin 'scrooloose/nerdcommenter'
+
+" Match maker
+Plugin 'https://github.com/qstrahl/vim-matchmaker.git'
+
+" vim-markdown-preview
+Plugin 'https://github.com/JamshedVesuna/vim-markdown-preview'
+
+" Spell Checking
+Plugin 'xolox/vim-misc'
+Plugin 'reedes/vim-lexical'
+
+" Google Formatter
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+
+" vim colorschemes
+" Use ctrl+F8 to random switch to next color scheme
+" Command: NextColorScheme
+" Command: PrevColorScheme
+" Command: RandomColorScheme
+Plugin 'xolox/vim-colorscheme-switcher'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " remap ESC to jj i 3
 imap jj <Esc>
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
-
-" TODO: Load plugins here (pathogen or vundle)
-
 " Turn on syntax highlighting
 syntax on
 
-" For plugins to load correctly
-filetype plugin indent on
-
-" TODO: Pick a leader key
 let mapleader = "\<Space>"
 
 " Security
@@ -35,8 +82,7 @@ set encoding=utf-8
 
 " Whitespace
 set nowrap
-set textwidth=79
-set formatoptions=tcqrn1
+set textwidth=80
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -76,28 +122,13 @@ set smartcase
 set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
+" Visualize tabs
+set listchars=tab:▸\ 
 
-" Textmate holdouts
-
-" Formatting
-map <leader>q gqip
-
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
 " Uncomment this to enable by default:
 " set list " To enable by default
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
-
-" Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
 
 " Copy to the system clipboard for Mac
 set clipboard=unnamed
@@ -105,68 +136,68 @@ set clipboard=unnamed
 " NERDTree Shortcut to Ctrl+\
 map <C-\> :NERDTreeToggle<CR>
 
-" Settings for Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" Turn on spell checking
-" `z=`: find substitution
-" `zg`: add to dictionary
-" `zw`: mark the word as incorrect
-set spell spelllang=en_us
-
-" vim-plug plugin manager
-call plug#begin('~/.vim/plugged')
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-" Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Fuzzy file finder
-Plug 'ctrlpvim/ctrlp.vim'
-
-" Cool status bar
-Plug 'itchyny/lightline.vim'
-
-" File tree view NERDTree
-Plug 'https://github.com/scrooloose/nerdtree.git'
-
-" Syntax checking
-Plug 'neomake/neomake'
-
-" Comments
-Plug 'https://github.com/tpope/vim-commentary.git'
-
-" Smart Indentation
-Plug 'https://github.com/vim-scripts/IndentAnything.git'
-
-" Match maker
-Plug 'https://github.com/qstrahl/vim-matchmaker.git'
-
-" vim-clang-format
-Plug 'https://github.com/rhysd/vim-clang-format'
-
-" vim-markdown-preview
-Plug 'https://github.com/JamshedVesuna/vim-markdown-preview'
-
-call plug#end()
-
 " Settings for neomake
 " When writing a buffer (no delay).
 call neomake#configure#automake('w')
-
-" Enable auto clang formatting for c and cpp files
-autocmd FileType cpp ClangFormatAutoEnable
-autocmd FileType c ClangFormatAutoEnable
 
 " Use grip to work with vim-markdown-preview plugin to interpret the markdown
 " file as a github README file
 let vim_markdown_preview_github=1
 
 " Preview markdown on buffer write
-let vim_markdown_preview_toggle=2
+" let vim_markdown_preview_toggle=2
 
+" Turn on spell checking
+" `z=`: find substitution
+" `1z=`: use the first suggestion, without prompting
+" `zg`: mark the word as a good word
+" `zug`: unmark as good word
+" `zw`: mark the word as a bad word
+" `zuw`: unmark as bad word
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,mkd call lexical#init()
+  autocmd FileType text call lexical#init()
+augroup END
+
+" Google Code Format
+" Those individual formatters need to be installed for each file 
+" type to be formatted correctly
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  " Clang-format's style is specified in ~/.clang-format
+  " Using Google Style Guide
+  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  " YAPF's style is specified in ~/.config/yapf/style
+  " Using 2 space instead of 4
+  " Using Google Style Guide
+  autocmd FileType python AutoFormatBuffer yapf
+  "autocmd FileType python AutoFormatBuffer autopep8
+augroup END
+
+" Hightlight matches for the word under the cursor on startup
+" Prevent matching when the word under the cursor doesn't show up anywhere else
+let g:matchmaker_enable_startup = 1
+let g:matchmaker_ignore_single_match = 1
+
+" Use leader key to go to different tab quickly
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>h :tabprevious<CR>
+noremap <leader>l :tabprevious<CR>
+
+" Since ftplugin is used on default, we have to enforce the indentation
+" forspecific language such as Python
+autocmd FileType python setlocal shiftwidth=2 softtabstop=2 expandtab

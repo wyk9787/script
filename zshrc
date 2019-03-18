@@ -44,7 +44,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -65,7 +65,7 @@ DEFAULT_USER=`whoami`
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git zsh-autosuggestions zsh-syntax-highlighting
+  git zsh-autosuggestions zsh-syntax-highlighting colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,5 +98,24 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sl="ls"
 alias gc="git commit -m"
+alias cs="cd /Users/Garrett/Documents/1_CS" 
+alias scrambler="cd /Users/Garrett/Documents/1_CS/Research/Scrambler/scrambler" 
+alias compiler="cd /Users/Garrett/Documents/1_CS/Project/compiler/"
+alias gserver="gcloud compute --project "catify-218805" ssh --zone "us-east1-b" "instance-1""
+alias notes="cd /Users/Garrett/Documents/1_CS/study/notes"
+alias 19s="cd /Users/Garrett/Documents/8_Grinnell/2019Spring"
 
+# Use Python3 instead of Python2
+alias python="python3"
+
+# Support autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/Garrett/Documents/1_CS/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/Garrett/Documents/1_CS/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/Garrett/Documents/1_CS/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/Garrett/Documents/1_CS/google-cloud-sdk/completion.zsh.inc'; fi
+PATH=/opt/local/bin:$PATH

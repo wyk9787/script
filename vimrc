@@ -1,61 +1,58 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Make sure you use single quotes
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 " Fuzzy file finder
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Cool status bar
-Plugin 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
 " File tree view NERDTree
-Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/scrooloose/nerdtree.git'
 
 " Syntax checking
-Plugin 'neomake/neomake'
+Plug 'neomake/neomake'
 
 " Comments
 " <leader>c<space>: Toggle the state of current(selected) lines
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " Match maker
-Plugin 'https://github.com/qstrahl/vim-matchmaker.git'
+Plug 'https://github.com/qstrahl/vim-matchmaker.git'
 
 " vim-markdown-preview
-Plugin 'https://github.com/JamshedVesuna/vim-markdown-preview'
+Plug 'https://github.com/JamshedVesuna/vim-markdown-preview'
 
 " Spell Checking
-Plugin 'xolox/vim-misc'
-Plugin 'reedes/vim-lexical'
+Plug 'xolox/vim-misc'
+Plug 'reedes/vim-lexical'
 
 " Google Formatter
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
 
 " vim colorschemes
 " Use ctrl+F8 to random switch to next color scheme
 " Command: NextColorScheme
 " Command: PrevColorScheme
 " Command: RandomColorScheme
-Plugin 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-colorscheme-switcher'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
+
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 " remap ESC to jj i 3
 imap jj <Esc>

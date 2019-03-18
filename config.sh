@@ -8,9 +8,8 @@ set -x # echo on
 # 2. Copy over .zshrc and install following plugins:
 #   a. zsh-autosuggestions
 #   b. zsh-syntax-highlighting 
-# 3. Install Vundle, a vim plugin manager 
-# 4. Copy over .vimrc
-# 5. Copy over following formatter config file
+# 3. Copy over .vimrc
+# 4. Copy over following formatter config file
 ##########################################################
 
 ###########################################################
@@ -40,10 +39,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Copy zshrc to home directory
 cp zshrc ~/.zshrc
-
-# Install Vundle which is a plugin manager for vim
-# Run `PluginInstall` in vim to install vim plugins
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Copy vimrc to home directory
 cp vimrc ~/.vimrc

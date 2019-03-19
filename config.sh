@@ -43,6 +43,27 @@ cp zshrc ~/.zshrc
 # Copy vimrc to home directory
 cp vimrc ~/.vimrc
 
+# One of the heaviest plugin is coc.nvim which requires the following:
+#  1. vim >= 8.1 with python or python3 support
+#    a. For Mac OS: `brew install vim` should have python support
+#    b. For Linux: `git clone https://github.com/vim/vim.git`
+#                  ./configure --enable-pythoninterp
+#                  make
+#                  sudo make install
+#  2. yarn: 
+#     a. Watch out apt-get may install another package rather than yarn
+#     b. If that's the case, install Yarn from the source 
+#     c. Note we need the latest version of node.js to have Yarn function
+#     properly  
+#     d. Run `yarn global add vim-node-rpc`
+#
+#  3. Oepn vim if it says "binary and build file not found" run:
+#     `:call coc#util#build()`
+
+#####################################################
+### Run `PlugInstall` from Vim to install plugins ###
+#####################################################
+
 # Copy formatter config files to home directory
 cp clang-format ~/.clang-format
 mkdir -p ~/.config/yapf && cp yapf_style ~/.config/yapf/style

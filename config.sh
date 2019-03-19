@@ -43,6 +43,16 @@ cp zshrc ~/.zshrc
 # Copy vimrc to home directory
 cp vimrc ~/.vimrc
 
+# One of the heaviest plugin is coc.nvim which requires the following:
+#  1. vim >= 8.1 with python or python3 support
+#    a. For Mac OS: `brew install vim` should have python support
+#    b. For Linux: `git clone https://github.com/vim/vim.git`
+#                  ./configure --enable-pythoninterp
+#                  make
+#                  sudo make install
+#  2. yarn: Then run `yarn global add vim-node-rpc`
+#  3. 
+
 # Copy formatter config files to home directory
 cp clang-format ~/.clang-format
 mkdir -p ~/.config/yapf && cp yapf_style ~/.config/yapf/style

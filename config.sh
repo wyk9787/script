@@ -60,7 +60,9 @@ cp vimrc ~/.vimrc
 #  3. Oepn vim if it says "binary and build file not found" run:
 #     `:call coc#util#build()`
 
-### Run `PlugInstall` from Vim to install plugins
+#####################################################
+### Run `PlugInstall` from Vim to install plugins ###
+#####################################################
 
 # Copy formatter config files to home directory
 cp clang-format ~/.clang-format

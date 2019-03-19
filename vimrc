@@ -206,6 +206,29 @@ autocmd FileType python setlocal shiftwidth=2 softtabstop=2 expandtab
 """"""""""""" COC.NVIM """"""""""""""""""
 """""""""""""""""""""""""""""""""""""""""
 
+":CocStart 					*:CocStart*
+
+		"Start coc server, do nothing if it's already started.
+
+":CocDisable 					*:CocDisable*
+
+		"Disable all events of coc
+
+":CocEnable 					*:CocEnable*
+
+		"Enable events of coc
+
+":CocRestart 					*:CocRestart*
+
+		"Restart coc service.
+
+		"Use this command when you want coc start all over again.
+
+":CocConfig 					*:CocConfig*
+
+		"Edit user config file `coc-setting.json`
+
+
 " Better display for messages
 set cmdheight=2
 
@@ -247,6 +270,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gn <Plug>(coc-rename)
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

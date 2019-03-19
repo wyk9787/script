@@ -119,3 +119,4 @@ if [ -f '/Users/Garrett/Documents/1_CS/google-cloud-sdk/path.zsh.inc' ]; then . 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/Garrett/Documents/1_CS/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/Garrett/Documents/1_CS/google-cloud-sdk/completion.zsh.inc'; fi
 PATH=/opt/local/bin:$PATH
+export PATH="/usr/local/opt/bison/bin:$PATH"

@@ -46,19 +46,32 @@ cp vimrc ~/.vimrc
 # One of the heaviest plugin is coc.nvim which requires the following:
 #  1. vim >= 8.1 with python or python3 support
 #    a. For Mac OS: `brew install vim` should have python support
-#    b. For Linux: `git clone https://github.com/vim/vim.git`
-#                  ./configure --enable-pythoninterp
+#    b. For Linux: git clone https://github.com/vim/vim.git
+#                  sudo apt-get install python3.5-dev
+#                  ./configure \
+#                    --enable-pythoninterp
+#                    --with-python-config-dir=/usr/lib/python3.5 
+#                    --enable-fail-if-missing
 #                  make
 #                  sudo make install
 #  2. yarn: 
 #     a. Watch out apt-get may install another package rather than yarn
 #     b. If that's the case, install Yarn from the source 
+#        https://yarnpkg.com/lang/en/docs/install/#debian-stable
 #     c. Note we need the latest version of node.js to have Yarn function
-#     properly  
+#     properly
+#        https://github.com/nodesource/distributions/blob/master/README.md
 #     d. Run `yarn global add vim-node-rpc`
 #
 #  3. Oepn vim if it says "binary and build file not found" run:
 #     `:call coc#util#build()`
+#  
+#  4. bear:
+#     sudo apt-get install bear
+#  
+#  5. ccls
+#    a. Install CMake from official website
+#    b. Follow the instructions on ccls wiki page
 
 #####################################################
 ### Run `PlugInstall` from Vim to install plugins ###

@@ -78,11 +78,30 @@ echo "zsh" >> ~/.bashrc
 #  
 #  5. ccls
 #    a. Install CMake from official website
-cd ..
-wget https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0.tar.gz
-tar xvf cmake-3.14.0.tar.gz
-cd script
+      cd ..
+      wget https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0.tar.gz
+      tar xvf cmake-3.14.0.tar.gz
+      cd script
 #    b. Follow the instructions on ccls wiki page
+#
+#  6. Install extensions and configurations in vim
+#    a. `:CocInstall coc-json coc-java coc-html coc-highlight coc-pyls coc-snippets`
+#    b. `:CocConfig`: copy paste in the following
+#    {
+#      "languageserver": {
+#         "ccls": {
+#           "command": "ccls",
+#           "filetypes": ["c", "cpp", "objc", "objcpp"],
+#           "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+#           "initializationOptions": {
+#              "cache": {
+#                "directory": "/tmp/ccls"
+#              }
+#            }
+#         }
+#       }
+#    }
+#
 
 #####################################################
 ### Run `PlugInstall` from Vim to install plugins ###

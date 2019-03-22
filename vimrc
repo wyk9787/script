@@ -32,6 +32,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'https://github.com/qstrahl/vim-matchmaker.git'
 
 " vim-markdown-preview
+" This requires Grip(Github Readme Instant Preview): `brew install grip`
 Plug 'https://github.com/JamshedVesuna/vim-markdown-preview'
 
 " Spell Checking

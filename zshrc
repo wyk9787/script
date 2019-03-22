@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# export PATH=$HOME/bin:/usr/local/bin:$PATH 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -103,7 +102,7 @@ alias gc="git commit -m"
 alias cs="cd /Users/Garrett/Documents/1_CS" 
 alias scrambler="cd /Users/Garrett/Documents/1_CS/Research/Scrambler/scrambler" 
 alias compiler="cd /Users/Garrett/Documents/1_CS/Project/G-Compiler/"
-alias gserver="gcloud compute --project "catify-218805" ssh --zone "us-east1-b" "instance-1""
+alias gserver="gcloud compute --project "catify-218805" ssh --zone "us-central1-c" "gserver""
 alias notes="cd /Users/Garrett/Documents/1_CS/study/notes"
 alias 19s="cd /Users/Garrett/Documents/8_Grinnell/2019Spring"
 

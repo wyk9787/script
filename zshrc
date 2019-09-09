@@ -98,13 +98,13 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sl="ls"
-alias gc="git commit -m"
 alias cs="cd /Users/Garrett/Documents/1_CS" 
 alias scrambler="cd /Users/Garrett/Documents/1_CS/Research/Scrambler/scrambler" 
 alias compiler="cd /Users/Garrett/Documents/1_CS/Project/G-Compiler/"
 alias gserver="gcloud compute --project "catify-218805" ssh --zone "us-central1-c" "gserver""
 alias notes="cd /Users/Garrett/Documents/1_CS/study/notes"
-alias 19s="cd /Users/Garrett/Documents/8_Grinnell/2019Spring"
+alias cs324="cd /Users/Garrett/Documents/1_CS/GrinnellCourses/CSC-324"
+alias gcm="git commit -m"
 
 # Use Python3 instead of Python2
 alias python="python3"
@@ -119,3 +119,5 @@ if [ -f '/Users/Garrett/Documents/1_CS/google-cloud-sdk/path.zsh.inc' ]; then . 
 if [ -f '/Users/Garrett/Documents/1_CS/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/Garrett/Documents/1_CS/google-cloud-sdk/completion.zsh.inc'; fi
 PATH=/opt/local/bin:$PATH
 export PATH="/usr/local/opt/bison/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"

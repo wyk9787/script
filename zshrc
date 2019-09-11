@@ -105,6 +105,7 @@ alias gserver="gcloud compute --project "catify-218805" ssh --zone "us-central1-
 alias notes="cd /Users/Garrett/Documents/1_CS/study/notes"
 alias cs324="cd /Users/Garrett/Documents/1_CS/GrinnellCourses/CSC-324"
 alias gcm="git commit -m"
+alias 2019f="cd /Users/Garrett/Documents/8_Grinnell/2019Fall"
 
 # Use Python3 instead of Python2
 alias python="python3"

@@ -101,11 +101,12 @@ alias sl="ls"
 alias cs="cd /Users/Garrett/Documents/1_CS" 
 alias scrambler="cd /Users/Garrett/Documents/1_CS/Research/Scrambler/scrambler" 
 alias compiler="cd /Users/Garrett/Documents/1_CS/Project/G-Compiler/"
-alias gserver="gcloud compute --project "catify-218805" ssh --zone "us-central1-c" "gserver""
 alias notes="cd /Users/Garrett/Documents/1_CS/study/notes"
 alias cs324="cd /Users/Garrett/Documents/1_CS/GrinnellCourses/CSC-324"
 alias gcm="git commit -m"
 alias 2019f="cd /Users/Garrett/Documents/8_Grinnell/2019Fall"
+alias leetcode="cd /Users/Garrett/Documents/1_CS/LeetCode/2019Summer"
+alias aws="ssh -i /Users/Garrett/Documents/1_CS/keys/AWSmain.pem ec2-user@ec2-3-16-135-251.us-east-2.compute.amazonaws.com"
 
 # Use Python3 instead of Python2
 alias python="python3"

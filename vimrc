@@ -24,10 +24,6 @@ Plug 'https://github.com/scrooloose/nerdtree.git'
 " Syntax checking
 Plug 'neomake/neomake'
 
-" Comments
-" <leader>c<space>: Toggle the state of current(selected) lines
-Plug 'scrooloose/nerdcommenter'
-
 " Match maker
 Plug 'https://github.com/qstrahl/vim-matchmaker.git'
 
@@ -43,6 +39,10 @@ Plug 'reedes/vim-lexical'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+
+" Markdown plugin
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " vim colorschemes
 " Use ctrl+F8 to random switch to next color scheme
@@ -87,6 +87,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set noshiftround
+set formatoptions+=t
 
 " Cursor motion
 set scrolloff=5
@@ -123,6 +124,9 @@ map <leader><space> :let @/=''<cr> " clear search
 
 " Visualize tabs
 set listchars=tab:▸\ 
+
+" Disable folding
+set nofoldenable    
 
 " Uncomment this to enable by default:
 " set list " To enable by default

@@ -50,6 +50,26 @@ cp vimrc ~/.vimrc
 # The easiest way to do this on Linux
 echo "zsh" >> ~/.bashrc
 
+
+#####################################################
+### Run `PlugInstall` from Vim to install plugins ###
+#####################################################
+
+# Copy formatter config files to home directory
+cp clang-format ~/.clang-format
+mkdir -p ~/.config/yapf && cp yapf_style ~/.config/yapf/style
+
+# Install byobu
+sudo apt-get install byobu
+
+# Add git signature
+git config --global user.email "wangyika@grinnell.edu"
+git config --global user.name "Garrett Wang"
+
+
+#########################################################
+######### Instructions for installing CoC ###############
+#########################################################
 # One of the heaviest plugin is coc.nvim which requires the following:
 #  1. vim >= 8.1 with python or python3 support
 #    a. For Mac OS: `brew install vim` should have python support
@@ -74,14 +94,14 @@ echo "zsh" >> ~/.bashrc
 #     `:call coc#util#build()`
 #  
 #  4. bear:
-      sudo apt-get install bear
+#      sudo apt-get install bear
 #  
 #  5. ccls
 #    a. Install CMake from official website
-      cd ..
-      wget https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0.tar.gz
-      tar xvf cmake-3.14.0.tar.gz
-      cd script
+#      cd ..
+#      wget https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0.tar.gz
+#      tar xvf cmake-3.14.0.tar.gz
+#      cd script
 #    b. Follow the instructions on ccls wiki page
 #
 #  6. Install extensions and configurations in vim
@@ -102,20 +122,3 @@ echo "zsh" >> ~/.bashrc
 #       }
 #    }
 #
-
-#####################################################
-### Run `PlugInstall` from Vim to install plugins ###
-#####################################################
-
-# Copy formatter config files to home directory
-cp clang-format ~/.clang-format
-mkdir -p ~/.config/yapf && cp yapf_style ~/.config/yapf/style
-
-# Install byobu
-sudo apt-get install byobu
-
-# Add git signature
-git config --global user.email "wangyika@grinnell.edu"
-git config --global user.name "Garrett Wang"
-
-

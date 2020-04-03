@@ -1,8 +1,6 @@
 #!/bin/bash
 
-set -x # echo on
-
-##########################################################
+set -x # echo on ##########################################################
 # A personal script which installs following:
 # 1. Install zsh if necessary 
 # 2. Copy over .zshrc and install following plugins:
@@ -22,14 +20,12 @@ if ! [ -x "$(command -v zsh)" ]; then
   sudo apt-get install zsh
 fi
 
-# TODO: Decide whether we are on mac or linux
-
-# Mac configuration
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# Linux configuration
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-###########################################################
+# Install oh-my-zsh packagae
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
 
 # Install theme
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
@@ -60,7 +56,11 @@ cp clang-format ~/.clang-format
 mkdir -p ~/.config/yapf && cp yapf_style ~/.config/yapf/style
 
 # Install byobu
-sudo apt-get install byobu
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  sudo apt-get install byobu
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install byobu
+fi
 
 # Add git signature
 git config --global user.email "wangyika@grinnell.edu"

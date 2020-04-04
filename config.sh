@@ -63,8 +63,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Add git signature
-git config --global user.email "wangyika@grinnell.edu"
 git config --global user.name "Garrett Wang"
+git config --global user.email "garrettwang@google.com"
 
 
 #########################################################

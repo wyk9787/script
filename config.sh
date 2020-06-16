@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x # echo on ##########################################################
+##########################################################
 # A personal script which installs following:
 # 1. Install zsh if necessary 
 # 2. Copy over .zshrc and install following plugins:
@@ -9,6 +9,9 @@ set -x # echo on ##########################################################
 # 3. Copy over .vimrc
 # 4. Copy over following formatter config file
 ##########################################################
+
+set -x # echo on 
+set -e # exit immediately if any command failed
 
 ###########################################################
 # Acquire oh-my-zsh

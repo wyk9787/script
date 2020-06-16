@@ -13,23 +13,78 @@
 set -x # echo on 
 set -e # exit immediately if any command failed
 
-###########################################################
-# Acquire oh-my-zsh
-# Once oh-my-zsh is installed, this script needs to be rerun again since we
-# are using zsh now
+#######################################
+# Ask for user's confirmation whether they want to proceed.
+# Arguments:
+#   Text to shown, a string.
+#######################################
+function ask_for_confirmation () {
+  while true; do
+    read -p "$1" yn
+    case $yn in
+        [Yy]* ) return 0;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer y or n.";;
+    esac
+  done
+}
+
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+
+#######################################
+# Print text in red. A new line character will be added.
+# Arguments:
+#   Text to print, a string
+#######################################
+function color_print () {
+  printf "${RED}$1${NC}\n" 
+}
+
+#######################################
+# Print something before an app is intalled.
+# Arguments:
+#   App about to be installed, a string
+#######################################
+function preinstall_print() {
+  color_print "Installing $1..."
+}
+
+#######################################
+# Print something after an app is intalled. A new line is added at the end.
+# Arguments:
+#   App just finished installing, a string
+#######################################
+function postinstall_print() {
+  color_print "Done installing $1.\n"
+}
 
 # Install zsh if it's not installed yet
 if ! [ -x "$(command -v zsh)" ]; then
+  preinstall_print "zsh"
   sudo apt-get install zsh
+  postinstall_print "zsh"
 fi
 
+# Acquire oh-my-zsh
+# Once oh-my-zsh is installed, user needs to enter "exit" to quit zsh to finish
+# the remaining of the script.
+ask_for_confirmation "About to install oh-my-zsh. 
+You need to type \"exit\" to finish installing the rest of the script once oh-my-zsh is installed. 
+Please confirm (y/n): "
+
+
 # Install oh-my-zsh packagae
+preinstall_print "oh-my-zsh"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
+postinstall_print "oh-my-zsh"
 
+preinstall_print "oh-my-zsh themes & plugins"
 # Install theme
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
@@ -38,34 +93,33 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # Install syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+postinstall_print "oh-my-zsh themes & plugins"
 
+color_print "Copying over zshrc and vimrc to home directory..."
 # Copy zshrc to home directory
 cp zshrc ~/.zshrc
 
 # Copy vimrc to home directory
 cp vimrc ~/.vimrc
 
+color_print "Setting zsh to be the default shell by writing zsh to the end of bashrc..."
 # Use zsh as the default shell
 # The easiest way to do this on Linux
 echo "zsh" >> ~/.bashrc
 
-
-#####################################################
-### Run `PlugInstall` from Vim to install plugins ###
-#####################################################
-
-# Copy formatter config files to home directory
-cp clang-format ~/.clang-format
-mkdir -p ~/.config/yapf && cp yapf_style ~/.config/yapf/style
-
-# Install byobu
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  sudo apt-get install byobu
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  brew install byobu
-fi
+# # Copy formatter config files to home directory
+# cp clang-format ~/.clang-format
+# mkdir -p ~/.config/yapf && cp yapf_style ~/.config/yapf/style
+# 
+# # Install byobu
+# if [[ "$OSTYPE" == "linux-gnu" ]]; then
+#   sudo apt-get install byobu
+# elif [[ "$OSTYPE" == "darwin"* ]]; then
+#   brew install byobu
+# fi
 
 # Add git signature
+color_print "Adding git siganture..."
 git config --global user.name "Garrett Wang"
 git config --global user.email "garrettwang@google.com"
 
